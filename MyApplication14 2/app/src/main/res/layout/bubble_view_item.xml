@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.myapplication.data.KeywordResponseData" />
+
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.MainViewModel" />
+
+        <variable
+            name="isDetail"
+            type="Boolean" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="3dp"
+        android:paddingHorizontal="12dp"
+        android:background="@{item.isDuplicate &amp;&amp; isDetail ? @drawable/shape_green_s1_gray : @drawable/shape_white_s1_gray}"
+        android:onClick="@{() -> viewModel.onClickBubble(item.keyword)}"
+        android:foreground="?android:attr/selectableItemBackground">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.keyword}"
+            android:textColor="@color/black"
+            android:textSize="10sp" />
+    </FrameLayout>
+</layout>
